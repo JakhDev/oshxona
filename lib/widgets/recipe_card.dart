@@ -71,8 +71,7 @@ class RecipeCard extends StatelessWidget {
                   Positioned(
                     left: 8,
                     bottom: 8,
-                    child: _badge(_categoryLabel(recipe.categoryId, lang),
-                        recipe.categoryId == 'turk' ? AppColors.yellow : AppColors.primary),
+                    child: _badge(_categoryLabel(recipe.categoryId, lang), _categoryBadgeColor(recipe.categoryId)),
                   ),
                 if (showFavorite)
                   Positioned(
@@ -133,8 +132,20 @@ class RecipeCard extends StatelessWidget {
       'turk': {'uz': 'Turk', 'ru': 'Турецкая'},
       'yevropa': {'uz': 'Yevropa', 'ru': 'Европейская'},
       'diabet': {'uz': 'Diabet', 'ru': 'Диабет'},
+      'salatlar': {'uz': 'Salat', 'ru': 'Салат'},
     };
     return labels[categoryId]?[lang] ?? labels[categoryId]?['uz'] ?? categoryId;
+  }
+
+  Color _categoryBadgeColor(String categoryId) {
+    switch (categoryId) {
+      case 'turk':
+        return AppColors.yellow;
+      case 'salatlar':
+        return AppColors.green;
+      default:
+        return AppColors.primary;
+    }
   }
 
   Widget _badge(String text, Color color) {

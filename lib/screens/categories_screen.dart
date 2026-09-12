@@ -4,8 +4,7 @@ import '../data/app_state.dart';
 import '../data/mock_data.dart';
 import '../models/recipe.dart';
 import '../theme/app_theme.dart';
-import 'category_detail_screen.dart';
-import 'diabetic_menu_screen.dart';
+import 'home_screen.dart' show openCategory;
 
 /// 6-ekran: "Kategoriyalar" — barcha taom turkumlari ro'yxati.
 class CategoriesScreen extends StatelessWidget {
@@ -55,12 +54,7 @@ class _CategoryTile extends StatelessWidget {
     final lang = appState.languageCode;
     final t = appState.t;
     return GestureDetector(
-      onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (_) =>
-              category.id == 'diabet' ? const DiabeticMenuScreen() : CategoryDetailScreen(category: category),
-        ));
-      },
+      onTap: () => openCategory(context, category),
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(

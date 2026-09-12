@@ -5,7 +5,25 @@ import '../data/mock_data.dart';
 import '../models/recipe.dart';
 import '../theme/app_theme.dart';
 import 'search_screen.dart';
+import 'categories_screen.dart';
+import 'category_detail_screen.dart';
+import 'diabetic_menu_screen.dart';
+import 'salads_screen.dart';
 import '../widgets/recipe_card.dart';
+
+/// Kategoriya bosilganda mos ekranga o'tish — Home, Kategoriyalar
+/// ekranlarida ishlatiladigan umumiy navigatsiya qoidasi.
+void openCategory(BuildContext context, RecipeCategory category) {
+  Widget screen;
+  if (category.id == 'diabet') {
+    screen = const DiabeticMenuScreen();
+  } else if (category.id == 'salatlar') {
+    screen = const SaladsScreen();
+  } else {
+    screen = CategoryDetailScreen(category: category);
+  }
+  Navigator.of(context).push(MaterialPageRoute(builder: (_) => screen));
+}
 
 /// 5-ekran: "Bosh" — asosiy ekran, mashhur retseptlar va filtr chiplar bilan.
 /// Eslatma: header konteyner status-bar ortiga qadar cho'ziladi (to'liq
@@ -18,19 +36,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String _filter = 'all';
-  final _filterIds = const ['all', 'ozbek', 'turk', 'yevropa'];
-
-  List<Recipe> get _filteredRecipes {
-    if (_filter == 'all') return MockData.popularRecipes;
-    return MockData.allRecipes.where((r) => r.categoryId == _filter).toList();
-  }
-
-  String _filterLabel(String id, String Function(String) t, String lang) {
-    if (id == 'all') return t('filter_all');
-    final cat = MockData.categories.firstWhere((c) => c.id == id);
-    return cat.titleFor(lang).split(' ').first; // qisqa nom chip uchun
-  }
+  List<Recipe> get _filteredRecipes => MockData.popularRecipes;
 
   @override
   Widget build(BuildContext context) {
@@ -98,32 +104,62 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
+          SliverPadding(
+            padding: const EdgeInsets.fromLTRB(20, 18, 20, 4),
+            sliver: SliverToBoxAdapter(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(t('categories_title'),
+                      style: TextStyle(
+                          fontSize: 17, fontWeight: FontWeight.w800, color: context.colors.textDark)),
+                  GestureDetector(
+                    onTap: () => Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (_) => const CategoriesScreen())),
+                    child: Text(t('see_all'),
+                        style: const TextStyle(
+                            color: AppColors.primary, fontSize: 13, fontWeight: FontWeight.w700)),
+                  ),
+                ],
+              ),
+            ),
+          ),
           SliverToBoxAdapter(
             child: SizedBox(
-              height: 52,
+              height: 96,
               child: ListView.separated(
-                padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
+                padding: const EdgeInsets.fromLTRB(20, 10, 20, 8),
                 scrollDirection: Axis.horizontal,
-                itemCount: _filterIds.length,
-                separatorBuilder: (_, __) => const SizedBox(width: 10),
+                itemCount: MockData.categories.length,
+                separatorBuilder: (_, __) => const SizedBox(width: 12),
                 itemBuilder: (context, i) {
-                  final id = _filterIds[i];
-                  final selected = id == _filter;
+                  final cat = MockData.categories[i];
                   return GestureDetector(
-                    onTap: () => setState(() => _filter = id),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
-                      decoration: BoxDecoration(
-                        color: selected ? AppColors.primary : context.colors.card,
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(color: selected ? AppColors.primary : context.colors.divider),
-                      ),
-                      child: Text(
-                        _filterLabel(id, t, lang),
-                        style: TextStyle(
-                          color: selected ? Colors.white : context.colors.textDark,
-                          fontWeight: FontWeight.w600,
-                        ),
+                    onTap: () => openCategory(context, cat),
+                    child: SizedBox(
+                      width: 76,
+                      child: Column(
+                        children: [
+                          Container(
+                            width: 60,
+                            height: 60,
+                            decoration: BoxDecoration(color: cat.color, borderRadius: BorderRadius.circular(18)),
+                            alignment: Alignment.center,
+                            child: Text(cat.emoji, style: const TextStyle(fontSize: 26)),
+                          ),
+                          const SizedBox(height: 6),
+                          Text(
+                            cat.titleFor(lang).split(' ').first,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: context.colors.textDark,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   );
@@ -132,7 +168,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           SliverPadding(
-            padding: const EdgeInsets.fromLTRB(20, 8, 20, 4),
+            padding: const EdgeInsets.fromLTRB(20, 12, 20, 4),
             sliver: SliverToBoxAdapter(
               child: Text(t('popular_recipes'),
                   style: TextStyle(
@@ -149,7 +185,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 childAspectRatio: 0.78,
               ),
               delegate: SliverChildBuilderDelegate(
-                (context, i) => RecipeCard(recipe: _filteredRecipes[i]),
+                    (context, i) => RecipeCard(recipe: _filteredRecipes[i]),
                 childCount: _filteredRecipes.length,
               ),
             ),

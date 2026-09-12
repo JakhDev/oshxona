@@ -6,6 +6,7 @@ class AppLocalizations {
     // ---- Umumiy / navigatsiya ----
     'nav_home': {'uz': 'Bosh', 'ru': 'Главная'},
     'nav_categories': {'uz': 'Kategoriya', 'ru': 'Категории'},
+    'nav_salads': {'uz': 'Salatlar', 'ru': 'Салаты'},
     'nav_saved': {'uz': 'Saqlangan', 'ru': 'Сохранено'},
     'nav_profile': {'uz': 'Profil', 'ru': 'Профиль'},
 
@@ -63,6 +64,11 @@ class AppLocalizations {
     'categories_title': {'uz': 'Kategoriyalar', 'ru': 'Категории'},
     'recipe_count_suffix': {'uz': 'ta retsept', 'ru': 'рецептов'},
     'recipe_count_special_suffix': {'uz': 'ta maxsus retsept', 'ru': 'специальных рецептов'},
+    'see_all': {'uz': "Barchasi", 'ru': 'Все'},
+
+    // ---- Salatlar (bottom-nav) ----
+    'salads_title': {'uz': 'Salatlar', 'ru': 'Салаты'},
+    'salads_subtitle': {'uz': "Yengil va foydali salatlar to'plami", 'ru': 'Подборка лёгких и полезных салатов'},
 
     // ---- Recipe detail ----
     'ingredients': {'uz': 'Ingredientlar', 'ru': 'Ингредиенты'},
