@@ -49,6 +49,13 @@ class MockData {
 
   static final List<RecipeCategory> categories = [
     const RecipeCategory(
+      id: 'diabet',
+      title: {'uz': 'Diabet uchun', 'ru': 'Для диабетиков'},
+      emoji: '💚',
+      color: AppColors.green,
+      recipeCount: 10,
+    ),
+    const RecipeCategory(
       id: 'ozbek',
       title: {'uz': "O'zbek taomlar", 'ru': 'Узбекские блюда'},
       emoji: '🍲',
@@ -69,20 +76,9 @@ class MockData {
       color: Color(0xFFE8734A),
       recipeCount: 10,
     ),
-    const RecipeCategory(
-      id: 'salatlar',
-      title: {'uz': 'Salatlar', 'ru': 'Салаты'},
-      emoji: '🥗',
-      color: Color(0xFF6FBF73),
-      recipeCount: 22,
-    ),
-    const RecipeCategory(
-      id: 'diabet',
-      title: {'uz': 'Diabet uchun', 'ru': 'Для диабетиков'},
-      emoji: '💚',
-      color: AppColors.green,
-      recipeCount: 10,
-    ),
+    // Eslatma: "Salatlar" kategoriyasi bu ro'yxatdan olib tashlandi,
+    // lekin pastki navigatsiyadagi "Salatlar" bo'limi (salads_screen.dart)
+    // categoryId == 'salatlar' orqali o'z retseptlarini ko'rsatishda davom etadi.
   ];
 
   // =========================================================================
@@ -1738,20 +1734,20 @@ class MockData {
 
   /// Barcha retseptlar bitta ro'yxatda
   static List<Recipe> get allRecipes => [
-        // O'zbek
-        palov, shashlik, lagmon, manti, palovKokmosh, norin, dimlama, chuchvara, somsa, mastava,
-        // Turk
-        shawarma, kebab, lahmajun, pide, baklava, iskender, kayseriManti, mercimekShorva, simit, kofte,
-        // Yevropa
-        pizza, pastaCarbonara, lasagna, pancake, burger, steak, risotto, borsch, croissant, omletFrantsuz,
-        // Diabet
-        salat, tovuq, shorva, bugdaBaliq, sabzavotliOmlet, qovoqShorva, grechkaKotlet, tovuqSalatDiet,
-        sabzavotAralashma, findiqYogurt,
-        // Salatlar
-        sezarSalat, grekSalat, olivye, kapreze, koleslo, voldorf, kobbSalat, tabbule, fattush, vinegret,
-        panzanella, vitaminSalat, achichuk, loviaSalat, tunetsSalat, shopskaSalat, kinoaSalat, lavlagiSalat,
-        ismaloqSalat, mevaSalat, makkajoxoriSalat, krabSalat, seldOdShuboy,
-      ];
+    // O'zbek
+    palov, shashlik, lagmon, manti, palovKokmosh, norin, dimlama, chuchvara, somsa, mastava,
+    // Turk
+    shawarma, kebab, lahmajun, pide, baklava, iskender, kayseriManti, mercimekShorva, simit, kofte,
+    // Yevropa
+    pizza, pastaCarbonara, lasagna, pancake, burger, steak, risotto, borsch, croissant, omletFrantsuz,
+    // Diabet
+    salat, tovuq, shorva, bugdaBaliq, sabzavotliOmlet, qovoqShorva, grechkaKotlet, tovuqSalatDiet,
+    sabzavotAralashma, findiqYogurt,
+    // Salatlar
+    sezarSalat, grekSalat, olivye, kapreze, koleslo, voldorf, kobbSalat, tabbule, fattush, vinegret,
+    panzanella, vitaminSalat, achichuk, loviaSalat, tunetsSalat, shopskaSalat, kinoaSalat, lavlagiSalat,
+    ismaloqSalat, mevaSalat, makkajoxoriSalat, krabSalat, seldOdShuboy,
+  ];
 
   static List<Recipe> get popularRecipes => [palov, shashlik, kebab, pizza, sezarSalat, iskender];
 
