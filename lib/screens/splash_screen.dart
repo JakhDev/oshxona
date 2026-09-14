@@ -65,12 +65,12 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
             Positioned(
               top: -size.width * 0.35,
               right: -size.width * 0.3,
-              child: _softCircle(size.width * 0.8, Colors.white.withOpacity(0.07)),
+              child: _softCircle(size.width * 0.8, Colors.white.withValues(alpha: 0.07)),
             ),
             Positioned(
               bottom: -size.width * 0.4,
               left: -size.width * 0.35,
-              child: _softCircle(size.width * 0.9, Colors.white.withOpacity(0.06)),
+              child: _softCircle(size.width * 0.9, Colors.white.withValues(alpha: 0.06)),
             ),
             Positioned(
               top: size.height * 0.14,
@@ -107,7 +107,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                         borderRadius: BorderRadius.circular(32),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.18),
+                            color: Colors.black.withValues(alpha: 0.18),
                             blurRadius: 28,
                             offset: const Offset(0, 14),
                           ),
@@ -135,7 +135,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                         Text(
                           t('app_tagline'),
                           textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 14),
+                          style: TextStyle(color: Colors.white.withValues(alpha: 0.9), fontSize: 14),
                         ),
                       ],
                     ),
@@ -156,7 +156,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                     height: 28,
                     child: CircularProgressIndicator(
                       strokeWidth: 2.4,
-                      valueColor: AlwaysStoppedAnimation(Colors.white.withOpacity(0.85)),
+                      valueColor: AlwaysStoppedAnimation(Colors.white.withValues(alpha: 0.85)),
                     ),
                   ),
                 ),
@@ -181,9 +181,9 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
           width: 44,
           height: 44,
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.16),
+            color: Colors.white.withValues(alpha: 0.16),
             borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: Colors.white.withOpacity(0.25)),
+            border: Border.all(color: Colors.white.withValues(alpha: 0.25)),
           ),
           alignment: Alignment.center,
           child: Text(emoji, style: const TextStyle(fontSize: 20)),

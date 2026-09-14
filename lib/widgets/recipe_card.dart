@@ -81,7 +81,7 @@ class RecipeCard extends StatelessWidget {
                       onTap: () => appState.toggleSaved(recipe.id),
                       child: CircleAvatar(
                         radius: 15,
-                        backgroundColor: Colors.white.withOpacity(0.9),
+                        backgroundColor: Colors.white.withValues(alpha: 0.9),
                         child: Icon(
                           appState.isSaved(recipe.id) ? Icons.favorite : Icons.favorite_border,
                           size: 16,

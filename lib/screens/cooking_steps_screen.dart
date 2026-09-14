@@ -129,7 +129,7 @@ class _CookingStepsScreenState extends State<CookingStepsScreen> {
                                 Text(step.descriptionFor(lang),
                                     style: TextStyle(
                                         fontSize: 13,
-                                        color: active ? Colors.white.withOpacity(0.9) : context.colors.textGrey)),
+                                        color: active ? Colors.white.withValues(alpha: 0.9) : context.colors.textGrey)),
                               ],
                             ),
                           ),
