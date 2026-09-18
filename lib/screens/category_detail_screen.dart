@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../data/app_state.dart';
+<<<<<<< HEAD
 import '../data/recipe_repository.dart';
+=======
+import '../data/mock_data.dart';
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
 import '../models/recipe.dart';
 import '../theme/app_theme.dart';
 import '../widgets/recipe_card.dart';
 
+<<<<<<< HEAD
 /// 7-ekran: Tanlangan kategoriyadagi barcha retseptlar.
+=======
+/// 7-ekran: Tanlangan kategoriyadagi barcha retseptlar (masalan "O'zbek taomlar").
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
 class CategoryDetailScreen extends StatelessWidget {
   final RecipeCategory category;
   const CategoryDetailScreen({super.key, required this.category});
@@ -16,11 +24,19 @@ class CategoryDetailScreen extends StatelessWidget {
     final appState = context.watch<AppState>();
     final lang = appState.languageCode;
     final t = appState.t;
+<<<<<<< HEAD
     final recipes = RecipeRepository.instance.byCategory(category.id);
     final topPadding = MediaQuery.of(context).padding.top;
 
     return Scaffold(
       backgroundColor: AppColors.background,
+=======
+    final recipes = MockData.byCategory(category.id);
+    final topPadding = MediaQuery.of(context).padding.top;
+
+    return Scaffold(
+      backgroundColor: context.colors.background,
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
@@ -37,7 +53,11 @@ class CategoryDetailScreen extends StatelessWidget {
                     onTap: () => Navigator.pop(context),
                     child: CircleAvatar(
                       radius: 17,
+<<<<<<< HEAD
                       backgroundColor: Colors.white.withOpacity(0.24),
+=======
+                      backgroundColor: context.colors.headerOverlay,
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
                       child: const Icon(Icons.arrow_back, color: Colors.white, size: 18),
                     ),
                   ),
@@ -61,7 +81,11 @@ class CategoryDetailScreen extends StatelessWidget {
                 childAspectRatio: 0.78,
               ),
               delegate: SliverChildBuilderDelegate(
+<<<<<<< HEAD
                     (context, i) => RecipeCard(recipe: recipes[i]),
+=======
+                (context, i) => RecipeCard(recipe: recipes[i]),
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
                 childCount: recipes.length,
               ),
             ),
@@ -70,4 +94,8 @@ class CategoryDetailScreen extends StatelessWidget {
       ),
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830

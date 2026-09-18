@@ -1,5 +1,9 @@
 name: oshxona
+<<<<<<< HEAD
 description: "Oshxona — Milliy va Yevropa taomlari retseptlari ilovasi"
+=======
+description: "Oshxona — Milliy va Yevropa taomlari retseptlari ilovasi (MVP prototip)"
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -11,8 +15,13 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.6
   google_fonts: ^6.2.1
+<<<<<<< HEAD
   provider: ^6.1.2
   supabase_flutter: ^2.5.6
+=======
+  # State management: saqlangan retseptlar, til, tema
+  provider: ^6.1.2
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
 
 dev_dependencies:
   flutter_test:
@@ -20,4 +29,8 @@ dev_dependencies:
   flutter_lints: ^4.0.0
 
 flutter:
+<<<<<<< HEAD
   uses-material-design: true
+=======
+  uses-material-design: true
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830

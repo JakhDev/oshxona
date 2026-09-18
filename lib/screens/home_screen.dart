@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../data/app_state.dart';
+<<<<<<< HEAD
 import '../data/recipe_repository.dart';
+=======
+import '../data/mock_data.dart';
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
 import '../models/recipe.dart';
 import '../theme/app_theme.dart';
 import 'search_screen.dart';
@@ -11,6 +15,11 @@ import 'diabetic_menu_screen.dart';
 import 'salads_screen.dart';
 import '../widgets/recipe_card.dart';
 
+<<<<<<< HEAD
+=======
+/// Kategoriya bosilganda mos ekranga o'tish — Home, Kategoriyalar
+/// ekranlarida ishlatiladigan umumiy navigatsiya qoidasi.
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
 void openCategory(BuildContext context, RecipeCategory category) {
   Widget screen;
   if (category.id == 'diabet') {
@@ -23,7 +32,13 @@ void openCategory(BuildContext context, RecipeCategory category) {
   Navigator.of(context).push(MaterialPageRoute(builder: (_) => screen));
 }
 
+<<<<<<< HEAD
 /// 5-ekran: "Bosh" — asosiy ekran, mashhur retseptlar va kategoriyalar bilan.
+=======
+/// 5-ekran: "Bosh" — asosiy ekran, mashhur retseptlar va filtr chiplar bilan.
+/// Eslatma: header konteyner status-bar ortiga qadar cho'ziladi (to'liq
+/// ekranni egallaydi, tepada bo'sh joy qolmaydi).
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -32,7 +47,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+<<<<<<< HEAD
   List<Recipe> get _filteredRecipes => RecipeRepository.instance.popularRecipes;
+=======
+  List<Recipe> get _filteredRecipes => MockData.popularRecipes;
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
 
   @override
   Widget build(BuildContext context) {
@@ -40,10 +59,16 @@ class _HomeScreenState extends State<HomeScreen> {
     final t = appState.t;
     final lang = appState.languageCode;
     final topPadding = MediaQuery.of(context).padding.top;
+<<<<<<< HEAD
     final categories = RecipeRepository.instance.categories;
 
     return Scaffold(
       backgroundColor: AppColors.background,
+=======
+
+    return Scaffold(
+      backgroundColor: context.colors.background,
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
@@ -73,7 +98,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       CircleAvatar(
                         radius: 19,
+<<<<<<< HEAD
                         backgroundColor: Colors.white.withOpacity(0.2),
+=======
+                        backgroundColor: Colors.white.withValues(alpha: 0.2),
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
                         child: const Icon(Icons.notifications_none, color: Colors.white),
                       ),
                     ],
@@ -85,7 +114,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                       decoration: BoxDecoration(
+<<<<<<< HEAD
                         color: Colors.white.withOpacity(0.18),
+=======
+                        color: Colors.white.withValues(alpha: 0.18),
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
                         borderRadius: BorderRadius.circular(14),
                       ),
                       child: Row(
@@ -108,8 +141,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(t('categories_title'),
+<<<<<<< HEAD
                       style: const TextStyle(
                           fontSize: 17, fontWeight: FontWeight.w800, color: AppColors.textDark)),
+=======
+                      style: TextStyle(
+                          fontSize: 17, fontWeight: FontWeight.w800, color: context.colors.textDark)),
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
                   GestureDetector(
                     onTap: () => Navigator.of(context)
                         .push(MaterialPageRoute(builder: (_) => const CategoriesScreen())),
@@ -127,10 +165,17 @@ class _HomeScreenState extends State<HomeScreen> {
               child: ListView.separated(
                 padding: const EdgeInsets.fromLTRB(20, 10, 20, 8),
                 scrollDirection: Axis.horizontal,
+<<<<<<< HEAD
                 itemCount: categories.length,
                 separatorBuilder: (_, __) => const SizedBox(width: 12),
                 itemBuilder: (context, i) {
                   final cat = categories[i];
+=======
+                itemCount: MockData.categories.length,
+                separatorBuilder: (_, __) => const SizedBox(width: 12),
+                itemBuilder: (context, i) {
+                  final cat = MockData.categories[i];
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
                   return GestureDetector(
                     onTap: () => openCategory(context, cat),
                     child: SizedBox(
@@ -150,10 +195,17 @@ class _HomeScreenState extends State<HomeScreen> {
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.center,
+<<<<<<< HEAD
                             style: const TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
                               color: AppColors.textDark,
+=======
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: context.colors.textDark,
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
                             ),
                           ),
                         ],
@@ -168,8 +220,13 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.fromLTRB(20, 12, 20, 4),
             sliver: SliverToBoxAdapter(
               child: Text(t('popular_recipes'),
+<<<<<<< HEAD
                   style: const TextStyle(
                       fontSize: 17, fontWeight: FontWeight.w800, color: AppColors.textDark)),
+=======
+                  style: TextStyle(
+                      fontSize: 17, fontWeight: FontWeight.w800, color: context.colors.textDark)),
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
             ),
           ),
           SliverPadding(
@@ -191,4 +248,8 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../data/app_state.dart';
+<<<<<<< HEAD
 import '../data/recipe_repository.dart';
 import '../theme/app_theme.dart';
 import 'onboarding_screen.dart';
@@ -8,6 +9,13 @@ import 'main_screen.dart';
 
 /// 1-ekran: Splash — brendlangan grafik dizayn, so'ng sessiya holatiga
 /// qarab Onboarding yoki asosiy ekranga o'tadi.
+=======
+import '../theme/app_theme.dart';
+import 'onboarding_screen.dart';
+
+/// 1-ekran: Splash — brendlangan grafik dizayn bilan, so'ng avtomatik
+/// Onboarding'ga o'tadi.
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -31,6 +39,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     );
     _controller.forward();
 
+<<<<<<< HEAD
     Future.delayed(const Duration(milliseconds: 2000), () async {
       if (!mounted) return;
       final appState = context.read<AppState>();
@@ -45,6 +54,10 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
         );
       } else {
         if (!mounted) return;
+=======
+    Future.delayed(const Duration(milliseconds: 2000), () {
+      if (mounted) {
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (_) => const OnboardingScreen()),
         );
@@ -75,6 +88,10 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
         ),
         child: Stack(
           children: [
+<<<<<<< HEAD
+=======
+            // Orqa fondagi dekorativ doiralar
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
             Positioned(
               top: -size.width * 0.35,
               right: -size.width * 0.3,
@@ -105,6 +122,10 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
               left: size.width * 0.1,
               child: _floatingBadge('🥙'),
             ),
+<<<<<<< HEAD
+=======
+            // Markaziy logotip va matn
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
             Center(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -155,6 +176,10 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                 ],
               ),
             ),
+<<<<<<< HEAD
+=======
+            // Pastdagi yuklanish indikatori
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
             Positioned(
               left: 0,
               right: 0,
@@ -202,4 +227,8 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       ),
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830

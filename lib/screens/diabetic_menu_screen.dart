@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../data/app_state.dart';
+<<<<<<< HEAD
 import '../data/recipe_repository.dart';
+=======
+import '../data/mock_data.dart';
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
 import '../theme/app_theme.dart';
 import '../widgets/recipe_list_tile.dart';
 
@@ -13,11 +17,19 @@ class DiabeticMenuScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final appState = context.watch<AppState>();
     final t = appState.t;
+<<<<<<< HEAD
     final recipes = RecipeRepository.instance.byCategory('diabet');
     final topPadding = MediaQuery.of(context).padding.top;
 
     return Scaffold(
       backgroundColor: AppColors.background,
+=======
+    final recipes = MockData.byCategory('diabet');
+    final topPadding = MediaQuery.of(context).padding.top;
+
+    return Scaffold(
+      backgroundColor: context.colors.background,
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -34,7 +46,11 @@ class DiabeticMenuScreen extends StatelessWidget {
                   onTap: () => Navigator.pop(context),
                   child: CircleAvatar(
                     radius: 17,
+<<<<<<< HEAD
                     backgroundColor: Colors.white.withOpacity(0.24),
+=======
+                    backgroundColor: context.colors.headerOverlay,
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
                     child: const Icon(Icons.arrow_back, color: Colors.white, size: 18),
                   ),
                 ),
@@ -57,4 +73,8 @@ class DiabeticMenuScreen extends StatelessWidget {
       ),
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830

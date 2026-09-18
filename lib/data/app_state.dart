@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../models/recipe.dart';
 import 'app_localizations.dart';
@@ -12,11 +13,35 @@ class AppState extends ChangeNotifier {
   Set<String> _savedRecipeIds = {};
 
   String languageCode = 'uz';
+=======
+import '../models/recipe.dart';
+import 'app_localizations.dart';
+import 'mock_data.dart';
+
+/// Demo hisob ma'lumotlari — MVP uchun yagona "haqiqiy" hisob.
+/// Haqiqiy backend ulanganda bu klass API chaqiruviga almashtiriladi.
+class DemoAccount {
+  static const email = 'demo@oshxona.uz';
+  static const password = 'demo123';
+}
+
+/// Ilovaning global holati: saqlangan retseptlar, til, tema va foydalanuvchi.
+class AppState extends ChangeNotifier {
+  final Set<String> _savedRecipeIds = {'palov', 'shawarma', 'salat'};
+
+  String userName = 'Jahongir M.';
+  String userEmail = DemoAccount.email;
+
+  /// 'uz' yoki 'ru'
+  String languageCode = 'uz';
+
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
   bool darkMode = false;
   bool notificationsEnabled = true;
 
   ThemeMode get themeMode => darkMode ? ThemeMode.dark : ThemeMode.light;
 
+<<<<<<< HEAD
   User? get currentUser => _supabase.auth.currentUser;
   bool get isLoggedIn => currentUser != null;
   String get userName => currentUser?.userMetadata?['full_name'] as String? ?? 'Foydalanuvchi';
@@ -54,6 +79,23 @@ class AppState extends ChangeNotifier {
     }
   }
 
+=======
+  List<Recipe> get savedRecipes =>
+      MockData.allRecipes.where((r) => _savedRecipeIds.contains(r.id)).toList();
+
+  bool isSaved(String recipeId) => _savedRecipeIds.contains(recipeId);
+
+  void toggleSaved(String recipeId) {
+    if (_savedRecipeIds.contains(recipeId)) {
+      _savedRecipeIds.remove(recipeId);
+    } else {
+      _savedRecipeIds.add(recipeId);
+    }
+    notifyListeners();
+  }
+
+  /// Joriy tilga mos matnni qaytaradi. Masalan: `appState.t('login_title')`
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
   String t(String key) => AppLocalizations.t(languageCode, key);
 
   void setLanguage(String code) {
@@ -72,6 +114,7 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
+<<<<<<< HEAD
   /// Kirish. Muvaffaqiyatli bo'lsa null, aks holda xato matnini qaytaradi.
   Future<String?> login(String email, String password) async {
     try {
@@ -103,3 +146,14 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 }
+=======
+  /// Demo hisob bilan taqqoslab kirish. Muvaffaqiyatli bo'lsa true qaytaradi.
+  bool login(String email, String password) {
+    final ok = email.trim().toLowerCase() == DemoAccount.email && password == DemoAccount.password;
+    if (ok) {
+      userEmail = DemoAccount.email;
+    }
+    return ok;
+  }
+}
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830

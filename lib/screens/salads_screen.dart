@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../data/app_state.dart';
+<<<<<<< HEAD
 import '../data/recipe_repository.dart';
 import '../theme/app_theme.dart';
 import '../widgets/recipe_list_tile.dart';
 
 /// Bottom-nav "Salatlar" bo'limi — barcha salatlar ro'yxati.
+=======
+import '../data/mock_data.dart';
+import '../theme/app_theme.dart';
+import '../widgets/recipe_list_tile.dart';
+
+/// Bottom-nav "Salatlar" bo'limi — barcha salatlar ro'yxati (22+ ta).
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
 class SaladsScreen extends StatelessWidget {
   const SaladsScreen({super.key});
 
@@ -13,11 +21,19 @@ class SaladsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final appState = context.watch<AppState>();
     final t = appState.t;
+<<<<<<< HEAD
     final recipes = RecipeRepository.instance.byCategory('salatlar');
     final topPadding = MediaQuery.of(context).padding.top;
 
     return Scaffold(
       backgroundColor: AppColors.background,
+=======
+    final recipes = MockData.byCategory('salatlar');
+    final topPadding = MediaQuery.of(context).padding.top;
+
+    return Scaffold(
+      backgroundColor: context.colors.background,
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -36,7 +52,11 @@ class SaladsScreen extends StatelessWidget {
                       width: 44,
                       height: 44,
                       decoration: BoxDecoration(
+<<<<<<< HEAD
                         color: Colors.white.withOpacity(0.2),
+=======
+                        color: Colors.white.withValues(alpha: 0.2),
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
                         borderRadius: BorderRadius.circular(14),
                       ),
                       alignment: Alignment.center,
@@ -74,4 +94,8 @@ class SaladsScreen extends StatelessWidget {
       ),
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830

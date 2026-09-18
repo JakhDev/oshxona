@@ -19,6 +19,7 @@ class CookingStep {
 
   String titleFor(String lang) => localized(title, lang);
   String descriptionFor(String lang) => localized(description, lang);
+<<<<<<< HEAD
 
   factory CookingStep.fromJson(Map<String, dynamic> json) => CookingStep(
     title: Map<String, String>.from(json['title'] as Map),
@@ -26,19 +27,29 @@ class CookingStep {
   );
 
   Map<String, dynamic> toJson() => {'title': title, 'description': description};
+=======
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
 }
 
 /// Retsept modeli — barcha matn maydonlari uz/ru tillarida saqlanadi.
 class Recipe {
   final String id;
   final Map<String, String> title;
+<<<<<<< HEAD
   final String categoryId; // 'ozbek' | 'turk' | 'yevropa' | 'diabet' | 'salatlar'
+=======
+  final String categoryId; // 'ozbek' | 'turk' | 'yevropa' | 'diabet' (filtr uchun)
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
   final String emoji;
   final Color bgColor;
   final int durationMin;
   final int calories;
   final int servings;
+<<<<<<< HEAD
   final Map<String, String> difficulty;
+=======
+  final Map<String, String> difficulty; // Oson / O'rta / Qiyin
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
   final double rating;
   final Map<String, List<String>> ingredients;
   final List<CookingStep> steps;
@@ -66,6 +77,7 @@ class Recipe {
   String difficultyFor(String lang) => localized(difficulty, lang);
   List<String> ingredientsFor(String lang) => localizedList(ingredients, lang);
   String? glycemicNoteFor(String lang) => glycemicNote == null ? null : localized(glycemicNote!, lang);
+<<<<<<< HEAD
 
   factory Recipe.fromJson(Map<String, dynamic> json) => Recipe(
     id: json['id'] as String,
@@ -104,6 +116,8 @@ class Recipe {
     'is_diabetic': isDiabetic,
     'glycemic_note': glycemicNote,
   };
+=======
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
 }
 
 class RecipeCategory {
@@ -122,6 +136,7 @@ class RecipeCategory {
   });
 
   String titleFor(String lang) => localized(title, lang);
+<<<<<<< HEAD
 
   factory RecipeCategory.fromJson(Map<String, dynamic> json) => RecipeCategory(
     id: json['id'] as String,
@@ -139,3 +154,6 @@ class RecipeCategory {
     'recipe_count': recipeCount,
   };
 }
+=======
+}
+>>>>>>> 8db337a720862265be045519a8602f09ca0ec830
