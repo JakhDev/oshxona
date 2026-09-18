@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "608492465472",
+    "project_id": "oshxona-c78f4",
+    "storage_bucket": "oshxona-c78f4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608492465472:android:b265a17e13492cf40adea5",
+        "android_client_info": {
+          "package_name": "com.example.oshxona"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCor2ixGQlJRXamVektM5XvUBnmmaFerKM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
